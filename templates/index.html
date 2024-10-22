@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Seminarios</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Registro de Seminarios</h1>
+
+    <form method="POST" action="/" class="formulario-principal">
+        <!-- Primer Formulario -->
+        <div class="formulario-cuadro">
+            <h2>Datos Personales</h2>
+            <label for="fecha">Fecha:</label>
+            <input type="date" id="fecha" name="fecha" required>
+
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="apellidos">Apellidos:</label>
+            <input type="text" id="apellidos" name="apellidos" required>
+
+            <label for="turno">Turno:</label>
+            <select id="turno" name="turno" required>
+                <option value="mañana">Mañana</option>
+                <option value="tarde">Tarde</option>
+                <option value="noche">Noche</option>
+            </select>
+        </div>
+
+        <!-- Segundo Formulario -->
+        <div class="formulario-cuadro">
+            <h2>Seleccionar Seminario</h2>
+            <label for="seminario">Seminarios Disponibles:</label>
+            <select id="seminario" name="seminario" required>
+                <option value="Inteligencia Artificial">Inteligencia Artificial</option>
+                <option value="Machine Learning">Machine Learning</option>
+                <option value="Simulación con Arena">Simulación con Arena</option>
+                <option value="Robótica Educativa">Robótica Educativa</option>
+            </select>
+        </div>
+
+        <button type="submit">Enviar Registro</button>
+    </form>
+</body>
+</html>

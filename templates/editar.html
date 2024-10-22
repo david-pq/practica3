@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Registro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Editar Registro</h1>
+
+    <form method="POST" action="/actualizar/{{ indice }}">
+        <label for="fecha">Fecha:</label>
+        <input type="date" id="fecha" name="fecha" value="{{ registro.fecha }}" required>
+
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" value="{{ registro.nombre }}" required>
+
+        <label for="apellidos">Apellidos:</label>
+        <input type="text" id="apellidos" name="apellidos" value="{{ registro.apellidos }}" required>
+
+        <label for="turno">Turno:</label>
+        <select id="turno" name="turno" required>
+            <option value="mañana" {% if registro.turno == 'mañana' %}selected{% endif %}>Mañana</option>
+            <option value="tarde" {% if registro.turno == 'tarde' %}selected{% endif %}>Tarde</option>
+            <option value="noche" {% if registro.turno == 'noche' %}selected{% endif %}>Noche</option>
+        </select>
+
+        <label for="seminario">Seminario:</label>
+        <select id="seminario" name="seminario" required>
+            <option value="Inteligencia Artificial" {% if registro.seminario == 'Inteligencia Artificial' %}selected{% endif %}>Inteligencia Artificial</option>
+            <option value="Machine Learning" {% if registro.seminario == 'Machine Learning' %}selected{% endif %}>Machine Learning</option>
+            <option value="Simulación con Arena" {% if registro.seminario == 'Simulación con Arena' %}selected{% endif %}>Simulación con Arena</option>
+            <option value="Robótica Educativa" {% if registro.seminario == 'Robótica Educativa' %}selected{% endif %}>Robótica Educativa</option>
+        </select>
+
+        <button type="submit">Guardar Cambios</button>
+    </form>
+
+    <a href="/gestion">Cancelar</a>
+</body>
+</html>
